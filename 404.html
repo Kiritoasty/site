@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Documentary</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      font-family: 'Josefin Sans', sans-serif;
+      color: white;
+      background-color: #000;
+      overflow-x: hidden;
+    }
+
+    /* Background */
+    body {
+      min-height: 100vh;
+      background-image: url("https://files.catbox.moe/15krfa.jpg");
+      background-size: 115%;
+      background-position: center;
+      background-attachment: fixed;
+      animation: bg-pan 40s ease-in-out infinite alternate;
+    }
+
+    @keyframes bg-pan {
+      from { background-position: center; }
+      to { background-position: center top; }
+    }
+
+    /* Top bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.9);
+    }
+
+    .topbar .back {
+      position: absolute;
+      left: 24px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.8);
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: background 0.25s ease;
+    }
+
+    .topbar .back:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    .topbar .title {
+      font-size: 1.3rem;
+      letter-spacing: 0.6px;
+      font-weight: 600;
+    }
+
+    /* Layout */
+    .wrapper {
+      width: 90%;
+      max-width: 1100px;
+      margin: 90px auto 160px;
+      display: flex;
+      flex-direction: column;
+      gap: 90px;
+    }
+
+    /* Documentary section */
+    .section {
+      position: relative;
+      padding: 60px 60px 52px;
+      border-radius: 28px;
+
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(14px);
+
+      box-shadow:
+        0 40px 90px rgba(0,0,0,0.9),
+        inset 0 0 0 1px rgba(255,255,255,0.04);
+
+      opacity: 0;
+      transform: translateY(40px);
+      animation: section-enter 1s ease forwards;
+    }
+
+    /* Dark blurred rounded edges */
+    .section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+
+      box-shadow:
+        inset 0 0 60px rgba(0,0,0,0.85),
+        inset 0 0 120px rgba(0,0,0,0.9);
+
+      filter: blur(2px);
+    }
+
+    .section:nth-child(1) { animation-delay: 0.3s; }
+    .section:nth-child(2) { animation-delay: 0.6s; }
+    .section:nth-child(3) { animation-delay: 0.9s; }
+
+    @keyframes section-enter {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Section header */
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+    }
+
+    .section .subtitle {
+      font-size: 0.95rem;
+      opacity: 0.65;
+      margin-bottom: 34px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Text */
+    .section p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 1.25em;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      margin: 52px 0;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255,255,255,0.25),
+        transparent
+      );
+    }
+
+    a {
+      color: #1da1f2;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile */
+    @media (max-width: 700px) {
+      .section {
+        padding: 44px 28px 40px;
+      }
+
+      .section h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <a href="#" class="back">Main page</a>
+    <div class="title">Documentary Title</div>
+  </div>
+
+  <div class="wrapper">
+
+    <section class="section">
+      <h2>Chapter I — Origins</h2>
+      <div class="subtitle">You're on the wrong page..</div>
+
+      <p>
+        Did you search up something in my website and really expect something? You can go to the actual original website <a href="https://kiritoasty.site">here.</a>
+      </p>
+
+      <p
+        Happy travels inside of my website..... Hello my friends
+      </p>
+    </section>
+  </div>
+</body>
+</html>
