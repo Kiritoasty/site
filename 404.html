@@ -3,131 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kirimaple - Web Dev & Modding</title>
+  <title>404 - Page Not Found</title>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
       font-family: 'Josefin Sans', sans-serif;
-    }
-
-    body {
       background-color: #121212;
       color: #f5f5f5;
-      line-height: 1.6;
-    }
-
-    a {
-      color: #f5f5f5;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    a:hover {
-      color: #a8bca1;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-      padding: 2rem 0;
-    }
-
-    header {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid #333;
-    }
-
-    header h1 {
-      font-weight: 700;
-      font-size: 2rem;
-      color: #a8bca1;
-    }
-
-    nav a {
-      margin-left: 1.5rem;
-      font-weight: 500;
-    }
-
-    .hero {
+      height: 100vh;
       text-align: center;
-      padding: 4rem 0;
-      background: linear-gradient(135deg, rgba(168,188,161,0.05), rgba(255,0,150,0.02));
-      border-radius: 12px;
-      margin: 2rem 0;
     }
 
-    .hero h2 {
-      font-size: 2rem;
+    h1 {
+      font-size: 6rem;
+      color: #a8bca1;
       margin-bottom: 1rem;
-      color: #a8bca1;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto;
+    p {
+      font-size: 1.5rem;
       color: #ccc;
-      text-align: center;
-    }
-
-    .interests {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .card {
-      background: #1a1a1a;
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(168,188,161,0.2);
-    }
-
-    .card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-      color: #a8bca1;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: #ccc;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 0;
-      border-top: 1px solid #333;
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #777;
+      margin-bottom: 2rem;
     }
 
     .btn {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
       background: #a8bca1;
       color: #121212;
       border-radius: 8px;
       font-weight: 600;
+      text-decoration: none;
       transition: background 0.3s;
     }
 
@@ -135,96 +46,20 @@
       background: #7d8c74;
     }
 
-    #toast {
-      position: fixed;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%) translateY(20px);
-      background: #a8bca1;
-      color: #121212;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
     @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        text-align: center;
+      h1 {
+        font-size: 4rem;
       }
 
-      nav {
-        margin-top: 1rem;
+      p {
+        font-size: 1.2rem;
       }
     }
   </style>
 </head>
 <body>
-  <header class="container">
-    <h1>Kiritoasty.online</h1>
-    <nav>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="container">
-      <h2>Hello, I am Kiritoasty and you're stumbling across my useless website made out of pure boredom (namecheap)</h2>
-      <p>I'm a web developer although I still sort of suck at CSS and sometimes my pages look like slightly upgraded raw HTML</p>
-      </div>
-  </section>
-
-  <section id="interests" class="container">
-    <h2 style="margin-bottom: 1rem; color:#a8bca1;">My Interests</h2>
-    <div class="interests">
-      <div class="card">
-        <h3>Web development</h3>
-        <p>Duh..... Why would I make this website</p>
-      </div>
-      <div class="card">
-        <h3>Incredibox</h3>
-        <p>Creating silly little incredibox projects (they almost never get finished), I worked on Gab Engine! Gabboredsom is a cool guy</p>
-      </div>
-      <div class="card">
-        <h3>Animation</h3>
-        <p>Animating inside of stupid penguinmod I LOVE IT</p>
-      </div>
-      <div class="card">
-        <h3>Tech Exploration</h3>
-        <p>Experimenting with linux and then breaking my firmware compatibility</p>
-      </div>
-      <div class="card">
-        <h3>Graphic design</h3>
-        <p>I usually make map outs of websites inside of canva (I also did this for this website) and sometimes book cover simulations</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    Why are you reading this
-  </footer>
-
-  <div id="toast">My discord username is now on your clipboard!</div>
-
-  <script>
-    const contactLink = document.querySelector('nav a[href="#contact"]');
-    const toast = document.getElementById('toast');
-
-    contactLink.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      toast.style.opacity = '1';
-      toast.style.transform = 'translateX(-50%) translateY(0)';
-
-      navigator.clipboard.writeText('notkiritoasty').catch(() => console.log('Clipboard write failed'));
-
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateX(-50%) translateY(20px)';
-      }, 3000);
-    });
-  </script>
+  <h1>404</h1>
+  <p>The page you’re looking for doesn’t exist</p>
+  <a href="index.html" class="btn">Go Back Home</a>
 </body>
 </html>
