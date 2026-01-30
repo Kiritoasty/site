@@ -1,213 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Documentary</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kirimaple - Web Dev & Modding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
-    }
-
-    html, body {
+      box-sizing: border-box;
       font-family: 'Josefin Sans', sans-serif;
-      color: white;
-      background-color: #000;
-      overflow-x: hidden;
     }
 
-    /* Background */
     body {
-      min-height: 100vh;
-      background-image: url("https://files.catbox.moe/15krfa.jpg");
-      background-size: 115%;
-      background-position: center;
-      background-attachment: fixed;
-      animation: bg-pan 40s ease-in-out infinite alternate;
-    }
-
-    @keyframes bg-pan {
-      from { background-position: center; }
-      to { background-position: center top; }
-    }
-
-    /* Top bar */
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.9);
-    }
-
-    .topbar .back {
-      position: absolute;
-      left: 24px;
-      padding: 8px 18px;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.8);
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-      transition: background 0.25s ease;
-    }
-
-    .topbar .back:hover {
-      background: rgba(255,255,255,0.15);
-    }
-
-    .topbar .title {
-      font-size: 1.3rem;
-      letter-spacing: 0.6px;
-      font-weight: 600;
-    }
-
-    /* Layout */
-    .wrapper {
-      width: 90%;
-      max-width: 1100px;
-      margin: 90px auto 160px;
-      display: flex;
-      flex-direction: column;
-      gap: 90px;
-    }
-
-    /* Documentary section */
-    .section {
-      position: relative;
-      padding: 60px 60px 52px;
-      border-radius: 28px;
-
-      background: rgba(0, 0, 0, 0.78);
-      backdrop-filter: blur(14px);
-
-      box-shadow:
-        0 40px 90px rgba(0,0,0,0.9),
-        inset 0 0 0 1px rgba(255,255,255,0.04);
-
-      opacity: 0;
-      transform: translateY(40px);
-      animation: section-enter 1s ease forwards;
-    }
-
-    /* Dark blurred rounded edges */
-    .section::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      pointer-events: none;
-
-      box-shadow:
-        inset 0 0 60px rgba(0,0,0,0.85),
-        inset 0 0 120px rgba(0,0,0,0.9);
-
-      filter: blur(2px);
-    }
-
-    .section:nth-child(1) { animation-delay: 0.3s; }
-    .section:nth-child(2) { animation-delay: 0.6s; }
-    .section:nth-child(3) { animation-delay: 0.9s; }
-
-    @keyframes section-enter {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Section header */
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      font-weight: 600;
-      letter-spacing: 0.8px;
-    }
-
-    .section .subtitle {
-      font-size: 0.95rem;
-      opacity: 0.65;
-      margin-bottom: 34px;
-      letter-spacing: 0.3px;
-    }
-
-    /* Text */
-    .section p {
-      font-size: 1.05rem;
-      line-height: 1.75;
-      color: rgba(255,255,255,0.88);
-      margin-bottom: 1.25em;
-    }
-
-    .section p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Divider */
-    .divider {
-      height: 1px;
-      margin: 52px 0;
-      background: linear-gradient(
-        to right,
-        transparent,
-        rgba(255,255,255,0.25),
-        transparent
-      );
+      background-color: #121212;
+      color: #f5f5f5;
+      line-height: 1.6;
     }
 
     a {
-      color: #1da1f2;
+      color: #f5f5f5;
       text-decoration: none;
+      transition: color 0.3s;
     }
 
     a:hover {
-      text-decoration: underline;
+      color: #a8bca1;
     }
 
-    /* Mobile */
-    @media (max-width: 700px) {
-      .section {
-        padding: 44px 28px 40px;
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #333;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 2rem;
+      color: #a8bca1;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      font-weight: 500;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 0;
+      background: linear-gradient(135deg, rgba(168,188,161,0.05), rgba(255,0,150,0.02));
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #a8bca1;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #ccc;
+      text-align: center;
+    }
+
+    .interests {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(168,188,161,0.2);
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      color: #a8bca1;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid #333;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      margin-top: 1rem;
+      background: #a8bca1;
+      color: #121212;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #7d8c74;
+    }
+
+    #toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #a8bca1;
+      color: #121212;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        text-align: center;
       }
 
-      .section h2 {
-        font-size: 1.6rem;
+      nav {
+        margin-top: 1rem;
       }
     }
   </style>
 </head>
 <body>
+  <header class="container">
+    <h1>Kiritoasty.online</h1>
+    <nav>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <div class="topbar">
-    <a href="#" class="back">Main page</a>
-    <div class="title">The weird error page LOL</div>
-  </div>
+  <section class="hero">
+    <div class="container">
+      <h2>Hello, I am Kiritoasty and you're stumbling across my useless website made out of pure boredom (namecheap)</h2>
+      <p>I'm a web developer although I still sort of suck at CSS and sometimes my pages look like slightly upgraded raw HTML</p>
+      </div>
+  </section>
 
-  <div class="wrapper">
+  <section id="interests" class="container">
+    <h2 style="margin-bottom: 1rem; color:#a8bca1;">My Interests</h2>
+    <div class="interests">
+      <div class="card">
+        <h3>Web development</h3>
+        <p>Duh..... Why would I make this website</p>
+      </div>
+      <div class="card">
+        <h3>Incredibox</h3>
+        <p>Creating silly little incredibox projects (they almost never get finished), I worked on Gab Engine! Gabboredsom is a cool guy</p>
+      </div>
+      <div class="card">
+        <h3>Animation</h3>
+        <p>Animating inside of stupid penguinmod I LOVE IT</p>
+      </div>
+      <div class="card">
+        <h3>Tech Exploration</h3>
+        <p>Experimenting with linux and then breaking my firmware compatibility</p>
+      </div>
+      <div class="card">
+        <h3>Graphic design</h3>
+        <p>I usually make map outs of websites inside of canva (I also did this for this website) and sometimes book cover simulations</p>
+      </div>
+    </div>
+  </section>
 
-    <section class="section">
-      <h2>404 Error</h2>
-      <div class="subtitle">You're on the wrong page..</div>
+  <footer>
+    Why are you reading this
+  </footer>
 
-      <h2>
-        Did you search up something in my website and really expect something? You can go to the actual original website <a href="https://kiritoasty.site">here.</a>
-      </h2>
-      <h2>
-        Happy travels inside of my website..... Hello my friends
-      </h2>
-    </section>
-  </div>
+  <div id="toast">My discord username is now on your clipboard!</div>
+
+  <script>
+    const contactLink = document.querySelector('nav a[href="#contact"]');
+    const toast = document.getElementById('toast');
+
+    contactLink.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateX(-50%) translateY(0)';
+
+      navigator.clipboard.writeText('notkiritoasty').catch(() => console.log('Clipboard write failed'));
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(-50%) translateY(20px)';
+      }, 3000);
+    });
+  </script>
 </body>
 </html>
