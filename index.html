@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kiritoasty's Site</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiritoasty.online</title>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -39,17 +38,13 @@
       padding: 2rem 0;
     }
 
-    /* ===== ENTER OVERLAY ===== */
-
     .enter-overlay {
       position: fixed;
       inset: 0;
       background: #121212;
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      justify-content: center;
       align-items: center;
-      padding-bottom: 4rem;
       z-index: 999;
       transition: opacity 0.6s ease;
     }
@@ -57,6 +52,20 @@
     .enter-overlay.hidden {
       opacity: 0;
       pointer-events: none;
+    }
+
+    .enter-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .enter-title {
+      color: #ffffff;
+      font-weight: 300;
+      font-size: 2.2rem;
+      letter-spacing: 0.04em;
     }
 
     .enter-btn {
@@ -75,22 +84,18 @@
       background: #7d8c74;
     }
 
-    /* ===== ANIMATION SYSTEM ===== */
-
     .animate {
       opacity: 0;
       transform: translateY(-10px);
       transition:
-        opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity 0.6s cubic-bezier(0.6, 0, 0.2, 1),
+        transform 0.6s cubic-bezier(0.6, 0, 0.2, 1);
     }
 
     body.entered .animate {
       opacity: 1;
       transform: translateY(0);
     }
-
-    /* ===== HEADER ===== */
 
     header {
       display: flex;
@@ -108,8 +113,6 @@
     nav a {
       margin-left: 1.5rem;
     }
-
-    /* ===== HERO ===== */
 
     .hero {
       text-align: center;
@@ -137,8 +140,6 @@
       margin: auto;
       color: #ccc;
     }
-
-    /* ===== INTERESTS ===== */
 
     .interests {
       display: grid;
@@ -190,8 +191,8 @@
       opacity: 0;
       pointer-events: none;
       transition:
-        opacity 0.4s cubic-bezier(0.4,0,0.2,1),
-        transform 0.6s cubic-bezier(0.4,0,0.2,1);
+        opacity 0.4s cubic-bezier(0.6,0,0.2,1),
+        transform 0.6s cubic-bezier(0.6,0,0.2,1);
     }
 
     @media (max-width: 600px) {
@@ -208,10 +209,11 @@
 </head>
 
 <body>
-
-  <!-- ENTER SCREEN -->
   <div class="enter-overlay" id="enterOverlay">
-    <div class="enter-btn" id="enterBtn">Click to enter</div>
+    <div class="enter-content">
+      <h1 class="enter-title">Kiritoasty.online</h1>
+      <div class="enter-btn" id="enterBtn">Click to enter</div>
+    </div>
   </div>
 
   <header class="container animate">
@@ -224,44 +226,35 @@
   <section class="hero animate">
     <div class="container">
       <h2>Hello, I am Kiritoasty and you're stumbling across my useless website made out of pure boredom</h2>
-      <p>
-        I'm a web developer although I still sort of suck at CSS and sometimes my pages look like slightly upgraded raw HTML
-      </p>
+      <p>I'm a web developer although I still sort of suck at CSS and sometimes my pages look like slightly upgraded raw HTML</p>
     </div>
   </section>
 
   <section class="container animate">
     <h2 style="margin-bottom:1rem;color:#a8bca1;">My Interests</h2>
-
     <div class="interests">
       <div class="card">
         <h3>Web development</h3>
         <p>Duh..... Why would I make this website</p>
       </div>
-<div class="interests">
-
-  <div class="card">
-    <h3>Web development</h3>
-    <p>Duh..... Why would I make this website</p>
-  </div>
-  <div class="card">
-    <h3>Incredibox</h3>
-    <p>Creating silly little incredibox projects (they almost never get finished), I worked on Gab Engine! Gabboredsom is a cool guy</p>
-  </div>
-  <div class="card">
-    <h3>Animation</h3>
-    <p>Animating inside of stupid penguinmod I LOVE IT</p>
-  </div>
-  <div class="card">
-    <h3>Tech Exploration</h3>
-    <p>Experimenting with linux and then breaking my firmware compatibility</p>
-  </div>
-  <div class="card">
-    <h3>Graphic design</h3>
-    <p>I usually make map outs of websites inside of canva (I also did this for this website) and sometimes book cover simulations</p>
-  </div>
-</div>
-
+      <div class="card">
+        <h3>Incredibox</h3>
+        <p>Creating silly little incredibox projects, worked on Gab Engine</p>
+      </div>
+      <div class="card">
+        <h3>Animation</h3>
+        <p>Animating inside of stupid penguinmod I LOVE IT</p>
+      </div>
+      <div class="card">
+        <h3>Tech Exploration</h3>
+        <p>Experimenting with linux and breaking firmware compatibility</p>
+      </div>
+      <div class="card">
+        <h3>Graphic design</h3>
+        <p>Canva layouts, website maps, and book cover mockups</p>
+      </div>
+    </div>
+  </section>
 
   <footer class="animate">
     Why are you reading this
@@ -283,17 +276,14 @@
 
     contactLink.addEventListener('click', e => {
       e.preventDefault();
-
       toast.style.opacity = '1';
       toast.style.transform = 'translateX(-50%) translateY(0)';
       navigator.clipboard.writeText('notkiritoasty');
-
       setTimeout(() => {
         toast.style.opacity = '0';
         toast.style.transform = 'translateX(-50%) translateY(20px)';
       }, 3000);
     });
   </script>
-
 </body>
 </html>
